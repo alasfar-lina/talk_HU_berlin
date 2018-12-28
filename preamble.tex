@@ -1,0 +1,172 @@
+\usepackage{pdfpages}
+\usepackage{xspace}
+\usepackage{morefloats,subfig,afterpage,slashed,mathrsfs,amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{epstopdf}
+\usepackage{multirow,multicol}
+\usepackage{float}  
+\usepackage{tikz}
+\usepackage{cite} 
+\usepackage{amsfonts}
+\usepackage{amsmath, amssymb, } %amsthm, latexsym, amscd, enumerate, MnSymbol,bbm, etex,nicefrac,mathrsfs}
+% \newcommand\hmmax{0} % default 3
+% % \newcommand\bmmax{0} % default 4
+% \usepackage{bm}
+%% Set font 
+%\setromanfont{Cambria}
+%\setsansfont{Calibri}
+%\setmonofont{Consolas}
+%\setmathfont{Cambria Math}
+
+\usepackage[  %Paket Glossaries laden, muss nach Hyperref geladen werden!
+xindy,
+nonumberlist, % keine Seitenzahlen anzeigen           
+acronym,      % ein Abkürzungsverzeichnis erstellen
+toc           % Einträge im Inhaltsverzeichnis
+] 
+{glossaries}
+\everymath{\displaystyle}
+%\usepackage{geometry}
+\usepackage{pgfplotstable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{pgfplots, pgfplotstable}
+\usepgfplotslibrary{dateplot}
+%\geometry{
+%	paper = a4paper , % Change to letterpaper for US letter
+%	inner = \dimexpr0.5in+33pt\relax , % Inner margin
+%	outer = \dimexpr0.5in+22pt\relax , % Outer margin
+%	top = \dimexpr1in+12pt+24pt\relax , % Top margin
+%	bottom = \dimexpr 1in+24pt\relax, % Bottom margin
+%	marginpar = 51pt ,
+%	marginparsep = 17pt ,
+%	foot = 24pt ,
+%	headsep = 24pt
+%}
+%\usepackage{showkeys}
+%\usepackage[]{latexsym}
+%\usepackage{}
+%\graphicspath{./figures/}
+%% Using Babel allows other languages to be used and mixed-in easily
+%\usepackage[ngerman,english]{babel}
+
+
+%% Citation system tweaks
+% \let\@OldCite\cite
+% \renewcommand{\cite}[1]{\mbox{\!\!\!\@OldCite{#1}}}
+
+%% Maths
+% TODO: rework or eliminate maybemath
+\usepackage{abmath}
+\DeclareRobustCommand{\mymath}[1]{\ensuremath{\maybebmsf{#1}}}
+\DeclareRobustCommand{\parenths}[1]{\mymath{\left({#1}\right)}\xspace}
+\DeclareRobustCommand{\braces}[1]{\mymath{\left\{{#1}\right\}}\xspace}
+% \DeclareRobustCommand{\angles}[1]{\mymath{\left\langle{#1}\right\rangle}\xspace}
+\DeclareRobustCommand{\sqbracs}[1]{\mymath{\left[{#1}\right]}\xspace}
+\DeclareRobustCommand{\mods}[1]{\mymath{\left\lvert{#1}\right\rvert}\xspace}
+\DeclareRobustCommand{\modsq}[1]{\mymath{\mods{#1}^2}\xspace}
+ \DeclareRobustCommand{\dblmods}[1]{\mymath{\left\lVert{#1}\right\rVert}\xspace}
+ \DeclareRobustCommand{\expOf}[1]{\mymath{\exp{\!\parenths{#1}}}\xspace}
+ \DeclareRobustCommand{\eexp}[1]{e^{#1}\xspace}
+ \DeclareRobustCommand{\plusquad}{\mymath{\oplus}\xspace}
+ \DeclareRobustCommand{\logOf}[1]{\mymath{\log\!\parenths{#1}}\xspace}
+ \DeclareRobustCommand{\lnOf}[1]{\mymath{\ln\!\parenths{#1}}\xspace}
+\DeclareRobustCommand{\ofOrder}[1]{\mymath{\mathcal{O}\parenths{#1}}\xspace}
+\DeclareRobustCommand{\SOgroup}[1]{\mymath{\mathup{SO}\parenths{#1}}\xspace}
+\DeclareRobustCommand{\SUgroup}[1]{\mymath{\mathup{SU}\parenths{#1}}\xspace}
+\DeclareRobustCommand{\Ugroup}[1]{\mymath{\mathup{U}\parenths{#1}}\xspace}
+%\DeclareRobustCommand{\I}[1]{\mymath{\mathrm{i}}\xspace}
+\DeclareRobustCommand{\colvector}[1]{\mymath{\begin{pmatrix}#1\end{pmatrix}}\xspace}
+\DeclareRobustCommand{\Rate}{\mymath{\Gamma}\xspace}
+\DeclareRobustCommand{\RateOf}[1]{\mymath{\Gamma}\parenths{#1}\xspace}
+\DeclareRobustCommand{\pt}{p_{T}}
+\DeclareRobustCommand{\fOf}[1]{\mymath{f_{\text{#1}}\xspace}}
+\DeclareRobustCommand{\ToThe}[2]{\mymath{#1\cdot 10^{#2}}}
+\DeclareRobustCommand{\sqrts}{\sqrt{s}\xspace}
+\DeclareRobustCommand{\intlum}{\int \mathscr L dt}
+\newcommand{\E}[1]{\mbox{$\cdot 10^{#1}$}}
+\DeclareRobustCommand{\bra}[1]{\mbox{$\langle\, #1 \mid$}}
+\newcommand{\bbra}[1]{\mbox{$\left\langle\, #1 \right\mid$}}
+\DeclareRobustCommand{\ket}[1]{\mbox{$\mid #1\,\rangle$}}
+\newcommand{\bket}[1]{\mbox{$\left\mid #1\,\right\rangle$}}
+\newcommand{\pro}[2]{\mbox{$\langle\, #1 \mid #2\,\rangle$}}
+\newcommand{\expec}[1]{\mbox{$\langle\, #1\,\rangle$}}
+\newcommand{\expecl}[1]{\mbox{$\left\langle\,\strut\displaystyle{#1}\,\right\rangle$}}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\DeclareRobustCommand{\RK}{\mymath{R_{K^{(*)}}} }
+\DeclareRobustCommand{\RD}{\mymath{R_{D^{(*)}}} }
+
+%%% High-energy physics stuff
+%\usepackage{abhep}
+%\usepackage{hepnames}
+\usepackage{hepunits}
+\DeclareRobustCommand{\arXivCode}[1]{arXiv:#1}
+\DeclareRobustCommand{\CP}{\ensuremath{\mathcal{CP}}\xspace}
+\DeclareRobustCommand{\CPviolation}{\CP-violation\xspace}
+\DeclareRobustCommand{\CPv}{\CPviolation}
+\DeclareRobustCommand{\LHCb}{LHCb\xspace}
+\DeclareRobustCommand{\LHC}{LHC\xspace}
+\DeclareRobustCommand{\LEP}{LEP\xspace}
+\DeclareRobustCommand{\CERN}{CERN\xspace}
+\DeclareRobustCommand{\VELO}{VELO\xspace}
+%\DeclareRobustCommand{\bphysics}{\Pbottom-physics\xspace}
+%\DeclareRobustCommand{\bhadron}{\Pbottom-hadron\xspace}
+%\DeclareRobustCommand{\Bmeson}{\PB-meson\xspace}
+%\DeclareRobustCommand{\bbaryon}{\Pbottom-baryon\xspace}
+%\DeclareRobustCommand{\Bdecay}{\PB-decay\xspace}
+%\DeclareRobustCommand{\bdecay}{\Pbottom-decay\xspace}
+%\DeclareRobustCommand{\BToKPi}{\HepProcess{ \PB \to \PK \Ppi }\xspace}
+%\DeclareRobustCommand{\BToPiPi}{\HepProcess{ \PB \to \Ppi \Ppi }\xspace}
+%\DeclareRobustCommand{\BToKK}{\HepProcess{ \PB \to \PK \PK }\xspace}
+%\DeclareRobustCommand{\BToRhoPi}{\HepProcess{ \PB \to \Prho \Ppi }\xspace}
+%\DeclareRobustCommand{\BToRhoRho}{\HepProcess{ \PB \to \Prho \Prho }\xspace}
+%\DeclareRobustCommand{\BToKll}{\HepProcess{ \PB \to \PKstar(892) \Plepton \Plepton }\xspace}
+%\DeclareRobustCommand{\BToKtt}{\HepProcess{ \PB \to \PKstar(892) \tau^- \tau^+ }\xspace}
+%\DeclareRobustCommand{\BToKmm}{\HepProcess{ \PB \to \PKstar(892) \Pmuon  \APmuon  }\xspace}
+%\DeclareRobustCommand{\BToKee}{\HepProcess{ \PB \to \PKstar(892) \Pelectron \APelectron }\xspace}
+%\DeclareRobustCommand{\X}{\thesismath{X}\xspace}
+%\DeclareRobustCommand{\Xbar}{\thesismath{\overline{X}}\xspace}
+%\DeclareRobustCommand{\Xzero}{\HepGenParticle{X}{}{0}\xspace}
+%\DeclareRobustCommand{\Xzerobar}{\HepGenAntiParticle{X}{}{0}\xspace}
+%\DeclareRobustCommand{\epluseminus}{\Ppositron\!\Pelectron\xspace}
+%\DeclareRobustCommand{\protonproton}{\Pproton\APantiproton\xspace}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+	backgroundcolor=\color{white},   % choose the background color
+	basicstyle=\footnotesize,        % size of fonts used for the code
+	breaklines=true,                 % automatic line breaking only at whitespace
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	keywordstyle=\color{blue},       % keyword style
+	stringstyle=\color{mymauve},     % string literal style
+}
+
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+%\lstset{frame=tb,
+%	language=c++,
+%	aboveskip=3mm,
+%	belowskip=3mm,
+%	showstringspaces=false,
+%	columns=flexible,
+%	basicstyle={\small\ttfamily},
+%	numbers=none,
+%	numberstyle=\tiny\color{gray},
+%	keywordstyle=\color{blue},
+%	commentstyle=\color{dkgreen},
+%	stringstyle=\color{mauve},
+%	breaklines=true,
+%	breakatwhitespace=true,
+%	tabsize=3
+%}
